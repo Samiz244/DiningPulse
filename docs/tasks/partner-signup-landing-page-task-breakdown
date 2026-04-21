@@ -1,0 +1,154 @@
+# Task Breakdown — Partner Signup Landing Page
+
+## Task 1 — Frontend Page Structure
+Owner: Elena / Leo
+
+### Goal
+Create the partner-facing landing page layout and messaging structure.
+
+### Scope
+Do:
+- create landing page route
+- build hero section
+- build benefits/value sections
+- add clear call-to-action
+- make page responsive
+
+Do NOT:
+- implement backend submission logic
+- add authentication
+- add payments
+- add dashboard logic
+
+### Allowed Files
+- frontend routing files
+- landing page component files
+- shared UI components
+- styling files related to landing page
+
+### Done When
+- page renders correctly
+- messaging sections exist
+- CTA is visible
+- desktop/mobile layout works
+
+---
+
+## Task 2 — Partner Interest Form UI
+Owner: Elena / Leo
+
+### Goal
+Build the interest form UI and client-side validation.
+
+### Scope
+Do:
+- create form fields
+- add required field validation
+- add loading, success, and error states
+- prevent duplicate rapid submits on UI side
+
+Do NOT:
+- fake submission success
+- claim persistence without backend support
+
+### Allowed Files
+- landing page files
+- form component files
+- validation utilities used only for this feature
+
+### Done When
+- required fields validate
+- invalid input shows visible errors
+- loading and retry states exist
+- no fake success path exists
+
+---
+
+## Task 3 — Backend Lead Capture Endpoint
+Owner: Marcus / Ava
+
+### Goal
+Create backend handling for partner interest submissions.
+
+### Scope
+Do:
+- create submission endpoint
+- validate incoming payload
+- return real success/failure responses
+- log validation and submission failures
+
+Do NOT:
+- create full CRM
+- create billing flow
+- create partner auth
+- write unrelated schema changes
+
+### Allowed Files
+- server route files
+- controller/service files
+- validation files
+- storage files directly related to lead capture
+
+### Done When
+- endpoint accepts valid payload
+- invalid payload rejected cleanly
+- success response is real
+- failure response is real
+
+---
+
+## Task 4 — Frontend/Backend Integration
+Owner: Ethan / Leo / Ava
+
+### Goal
+Connect form submission to backend safely.
+
+### Scope
+Do:
+- connect frontend form to endpoint
+- map request and response properly
+- display real success and error states
+- handle network failures safely
+
+Do NOT:
+- bypass validation
+- swallow backend errors
+- fake successful submission
+
+### Allowed Files
+- frontend form files
+- API client files
+- backend endpoint files only if required for contract alignment
+
+### Done When
+- successful submission works end-to-end
+- failures are visible
+- duplicate click behavior is controlled
+- request/response contract matches design
+
+---
+
+## Task 5 — QA Validation
+Owner: Sofia
+
+### Goal
+Verify the feature works across happy, failure, and edge cases.
+
+### Must Validate
+- page loads correctly
+- form validates required fields
+- valid submission succeeds
+- invalid submission fails visibly
+- duplicate rapid click does not create duplicate submissions
+- network/backend failure shows retryable error state
+- responsive behavior works
+
+### Evidence Required
+- screenshots
+- logs
+- API response samples
+
+### Done When
+- all acceptance criteria validated
+- failures tested
+- evidence documented
