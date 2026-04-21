@@ -1,0 +1,76 @@
+# Technical Design — Partner Signup Landing Page
+
+## Task
+Design a partner-facing landing page for DiningPulse that explains the product and captures restaurant partner interest through a simple form.
+
+## Components Affected
+Frontend:
+- landing page route
+- reusable marketing sections
+- partner interest form
+- success and error states
+
+Backend:
+- optional form submission endpoint if data is stored server-side
+- validation layer for submitted partner data
+
+Data:
+- partner lead record or temporary email delivery payload
+
+## Data Flow
+1. User visits the partner signup landing page.
+2. User reads product messaging and benefits.
+3. User clicks call-to-action and completes the partner interest form.
+4. Frontend validates required fields before submission.
+5. Submission is sent to backend or lead handler.
+6. Backend validates payload.
+7. On success, user sees a real success message.
+8. On failure, user sees a real error message and can retry.
+
+## API Contracts
+If backend storage is implemented:
+
+### POST /api/partners/interest
+Request body:
+- restaurantName: string
+- contactName: string
+- email: string
+- phone: string (optional)
+- restaurantType: string (optional)
+- locations: string or number (optional)
+- notes: string (optional)
+
+Response on success:
+- success: true
+- message: "Interest submitted"
+
+Response on failure:
+- success: false
+- error: string
+
+If backend is NOT yet implemented:
+- form must clearly use a temporary handling mechanism
+- no fake persistence claims allowed
+
+## Failure Modes
+- missing required form fields
+- invalid email format
+- network failure during submission
+- backend unavailable
+- duplicate rapid submission from repeated button clicks
+
+## Observability
+Frontend:
+- visible loading state
+- visible error state
+- visible success state
+
+Backend:
+- request logging
+- validation error logging
+- failure logging
+
+## Rollback Plan
+- revert landing page route and form submission changes
+- preserve existing routes and app behavior
+- if backend endpoint causes issues, disable submission path and fall back to non-destructive contact capture method
